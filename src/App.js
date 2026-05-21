@@ -1215,7 +1215,8 @@ function App() {
     printPackingSheets(packingSheets, 'Please upload a MESA Excel file with address and item columns first!');
   };
 
-  return (
+  return (   
+    <div> 
     <div className="App">
       <div className="container">
         {/* Header */}
@@ -1593,9 +1594,24 @@ function App() {
               Print All Packing Sheets
             </button>
           </div>
-        </div>
-      </div>
+             
+        </div>   
+    
+      </div>  
+
     </div>
+
+    <footer>
+      <div>
+    <i>Packing Sheet Generator</i> is developed by Cam Senna under the 
+    supervision of Garrett M. Dancik and Sydney Clements, <a href = "Eastern Connecticut State University" target="_blank" rel="noopener noreferrer">Eastern Connecticut State University</a>,
+    and Juan Pablo Yepes Tobón, <a href = "https://www.windhamfood.org/" target = "_blank" rel="noopener noreferrer">Windham Community Food Network</a>. 
+    </div>
+   </footer> 
+   
+   </div>
+
+
   );
 }
 
