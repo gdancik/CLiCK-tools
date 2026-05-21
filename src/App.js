@@ -6,6 +6,8 @@ import { saveAs } from 'file-saver'; // Library for downloading files
 import JSZip from 'jszip'; // Library for creating ZIP files
 import './App.css';
 
+
+const LOAD_EXAMPLE_WORKBOOK = false;  // Set to true to load example workbook on app start
 const EXAMPLE_WORKBOOK_NAME = 'ExampleData.xlsx';
 const EXAMPLE_WORKBOOK_PATH = `${process.env.PUBLIC_URL || ''}/${EXAMPLE_WORKBOOK_NAME}`;
 
@@ -369,7 +371,7 @@ const getHouseholdSizeValue = (householdSize) => {
 };
 
 const PACKING_SHEET_MARGIN_TWIPS = 360;
-const QUANTITY_COLUMN_LABEL = 'Quantity';
+const QUANTITY_COLUMN_LABEL = 'Size';
 const RECIPIENT_ADDRESS_TAB_TWIPS = 2000;
 const FONT_FAMILIES = ['Arial', 'Calibri', 'Times New Roman', 'Georgia', 'Verdana'];
 const LINE_SPACING_OPTIONS = [
@@ -667,7 +669,9 @@ function App() {
       }
     };
 
-    loadExampleWorkbook();
+    if (LOAD_EXAMPLE_WORKBOOK) {
+      loadExampleWorkbook();
+    }
 
     return () => {
       isMounted = false;
@@ -877,21 +881,18 @@ function App() {
                 },
               ],
               children: [
+
                 new TextRun({
-                  text: QUANTITY_COLUMN_LABEL,
+                  text: QUANTITY_COLUMN_LABEL + '\tAddress\t\t\t\t',
+                  underline : {
+                    type: 'single',
+                    color: "000000"
+                  },
                   ...columnHeaderRunStyle,
-                }),
-                new TextRun({
-                  text: '\t',
-                  ...columnHeaderRunStyle,
-                }),
-                new TextRun({
-                  text: 'Address',
-                  ...columnHeaderRunStyle,
-                }),
+                })               
               ],
               spacing: {
-                after: 80,
+                after: 150,
               },
             }),
             ...recipientParagraphs,
