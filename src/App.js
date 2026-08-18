@@ -13,7 +13,7 @@ const EXAMPLE_WORKBOOK_PATH = `${process.env.PUBLIC_URL || ''}/${EXAMPLE_WORKBOO
 
 const LABEL_ALIASES = [
   ['family', 'family name', 'household', 'household name', 'client', 'client name', 'name'],
-  ['num people', 'number of people', 'people', 'household size', 'adults', 'children', 'kids', 'seniors'],
+  ['num people', 'number of people', 'people', 'route', 'adults', 'children', 'kids', 'seniors'],
   ['misc wants', 'wants', 'request', 'requests', 'requested items', 'notes'],
   ["misc don't include", 'misc dont include', 'do not include', "don't include", 'dont include', 'restrictions', 'allergies'],
   ['fruits', 'fruit', 'vegetables', 'veggies', 'fruits veggies', 'fruits and veggies', 'fruits & veggies'],
@@ -273,7 +273,7 @@ const ADDRESS_HEADERS = [
 ];
 
 const HOUSEHOLD_SIZE_HEADERS = [
-  'household size',
+  'route',
   'family size',
   'num people',
   'number of people',
@@ -371,7 +371,7 @@ const getHouseholdSizeValue = (householdSize) => {
 };
 
 const PACKING_SHEET_MARGIN_TWIPS = 360;
-const QUANTITY_COLUMN_LABEL = 'Size';
+const QUANTITY_COLUMN_LABEL = 'Route';
 const RECIPIENT_ADDRESS_TAB_TWIPS = 2000;
 const FONT_FAMILIES = ['Arial', 'Calibri', 'Times New Roman', 'Georgia', 'Verdana'];
 const LINE_SPACING_OPTIONS = [
